@@ -52,7 +52,13 @@ def check_name(message):
 def new_donation(event): 
     addToList(event.username)
 
-bot.polling(none_stop=True)
+while True:
+    try:
+        bot.polling(none_stop=True)
+
+    except Exception as e:
+        bot.send_message(-901014873, e)  
+        time.sleep(15)
 
 
 
