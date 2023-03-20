@@ -56,8 +56,7 @@ while True:
     try:
         bot.polling(none_stop=True)
 
-    except Exception as e:
-        bot.send_message(-901014873, e)  
+    except Exception as e: 
         time.sleep(15)
 
 
