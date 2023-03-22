@@ -45,6 +45,11 @@ def check_name(message):
         
         il += 1
 
+@bot.message_handler(content_types["text"])
+def print_msg(message):
+    print(f'Имя: {message.from_user.username} \n Сообщение: {message.text} ')
+
+
             
 
 
