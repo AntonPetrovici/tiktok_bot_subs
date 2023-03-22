@@ -27,11 +27,13 @@ def start(message):
     bot.send_message(message.chat.id, "Здравствуйте! Чтобы получить доступ к секретному архиву, оплатите месячную подписку в размере 99₽")
     bot.send_message(message.chat.id, f"Вот ссылка для оплаты: {donate_url} ")
     bot.send_message(message.chat.id, "Отправьте команду /get, когда закончите")
+    print_msg(message)
 
 @bot.message_handler(commands=['get'])
 def get(message):
     bot.send_message(message.chat.id, "Введите ваше имя из donationalerts, чтобы мы могли удостовериться, что именно вы это вы оплатили подписку")
     bot.register_next_step_handler(message, callback=check_name)
+    print_msg(message)
 def check_name(message):
     name = message.text
     JS = read_json()
@@ -44,6 +46,7 @@ def check_name(message):
             bot.send_message(message.chat.id, "Увы!")
         
         il += 1
+    print_msg(message)
 
 @bot.message_handler(content_types=["text"])
 def print_msg(message):
