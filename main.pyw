@@ -24,7 +24,7 @@ def addToList(data):
 
 @bot.message_handler(commands=['start'])
 def start(message):
-    bot.send_message(message.chat.id, "Здравствуйте! Чтобы получить доступ к секретному архиву, оплатите месячную подписку в размере 99₽")
+    bot.send_message(message.chat.id, "")
     bot.send_message(message.chat.id, f"Вот ссылка для оплаты: {donate_url} ")
     bot.send_message(message.chat.id, "Отправьте команду /get, когда закончите")
     print_msg(message)
@@ -40,7 +40,7 @@ def check_name(message):
     il = 0
     for item in JS["user_names"]:
         if item == name:
-            bot.send_message(message.chat.id, f'Отлично, вы прошли проверку! Вот ссылка на архив: {arhive_link} ')
+            bot.send_message(message.chat.id, f'Отлично, вы прошли проверку!')
             break
         elif il >= len(JS["user_names"]) - 1:
             bot.send_message(message.chat.id, "Увы!")
